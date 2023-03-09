@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import colors from '../../styles/colors'
 
-const LoginScreen = () =>{
+function LoginScreen({navigation}) {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/login-page/fatec-login.jpg')} style={styles.imageBackgound}>
@@ -30,7 +30,10 @@ const LoginScreen = () =>{
                         secureTextEntry={true}
                         
                     />
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => navigation.navigate('Menu')}
+                    >
                         <View>
                             <Text style={styles.buttonText}>
                                 Login
