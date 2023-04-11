@@ -53,11 +53,6 @@ function App() {
         initialRouteName="Login"
         screenOptions={{
           headerTitle: (props) => <LogoTitle {...props} />,
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Ionicons name="arrow-back" size={24} color="white" />
-            </TouchableOpacity>
-          ),
           headerRight: () => (
             <TouchableOpacity onPress={() => console.log("Menu pressed")}>
               <Ionicons name="menu" size={24} color="white" />
@@ -76,7 +71,6 @@ function App() {
         <Stack.Screen
           name="Menu"
           component={MenuScreen}
-          options={{ headerBackVisible: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

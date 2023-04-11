@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -11,6 +11,7 @@ import {
 import AutoDimensionImage, {
   imageDimensionTypes,
 } from "react-native-auto-dimensions-image";
+import MenuModal from '../menuModal/menuModal';
 
 import colors from "../../styles/colors";
 
@@ -19,6 +20,33 @@ const data = [
     id: "1",
     title: "Consultas",
     icon: require("../../../assets/icons/menu/consultas.png"),
+    modalIcons: [
+      {
+        id: "1.1",
+        title: "Avisos",
+        icon: require("../../../assets/icons/menu/consultas/avisos.png")
+      },
+      {
+        id: "1.2",
+        title: "Histórico",
+        icon: require("../../../assets/icons/menu/consultas/historico.png")
+      },
+      {
+        id: "1.3",
+        title: "Horário",
+        icon: require("../../../assets/icons/menu/consultas/horario.png")
+      },
+      {
+        id: "1.4",
+        title: "Notas",
+        icon: require("../../../assets/icons/menu/consultas/notas.png")
+      },
+      {
+        id: "1.5",
+        title: "Faltas",
+        icon: require("../../../assets/icons/menu/consultas/faltas.png")
+      },
+    ]
   },
   {
     id: "2",
@@ -47,7 +75,6 @@ const data = [
   },
 ];
 
-const imageSize = 80;
 const numColumns = 2;
 
 const Separator = () => {
@@ -60,9 +87,21 @@ function MenuScreen() {
   const { height } = useWindowDimensions();
   const imagemPercentHeight = height * 0.12;
 
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // Função para abrir o modal
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  // Função para fechar o modal
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={handleOpenModal}>
         <View style={styles.itemContent}>
           <AutoDimensionImage
             source={item.icon}
@@ -75,23 +114,29 @@ function MenuScreen() {
     );
   };
   return (
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      numColumns={numColumns}
-      columnWrapperStyle={styles.row}
-      ItemSeparatorComponent={Separator}
-      contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
-    />
+    <View style={styles.container}>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        numColumns={numColumns}
+        columnWrapperStyle={styles.row}
+        ItemSeparatorComponent={Separator}
+        contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
+      />
+      <MenuModal
+        modalVisible={modalVisible}
+        closeModal={handleCloseModal}
+        modalContent="Conteúdo do Modal"
+        onPress={handleCloseModal}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignContent: "center",
-    borderWidth: 1,
-    borderColor: "blue",
+    flexGrow: 1,
   },
   item: {
     flex: 1,
@@ -111,38 +156,5 @@ const styles = StyleSheet.create({
     color: colors.mediumgrey,
   },
 });
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//   },
-//   row: {
-//     flexDirection: "row",
-//     height: "30%",
-//     justifyContent: "center",
-//     alignItems: "center",
-//     borderWidth: 2,
-//     borderColor: "pink",
-//   },
-//   column: {
-//     flexDirection: "column",
-//     borderWidth: 2,
-//     borderColor: "green",
-//     width: "50%",
-//   },
-//   botao: {
-//     justifyContent: "center",
-//     alignItems: "center",
-//     borderWidth: 2,
-//     borderColor: "black",
-//   },
-//   font: {
-//     marginTop: 10,
-//     fontFamily: "Roboto-Regular",
-//     fontSize: 18,
-//     color: colors.mediumgrey,
-//   },
-// });
 
 export default MenuScreen;
