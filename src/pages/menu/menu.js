@@ -46,6 +46,11 @@ const data = [
         title: "Faltas",
         icon: require("../../../assets/icons/menu/consultas/faltas.png")
       },
+      {
+        id: null,
+        title: null,
+        icon: null
+      },
     ]
   },
   {
@@ -120,15 +125,15 @@ function MenuScreen() {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={numColumns}
-        columnWrapperStyle={styles.row}
         ItemSeparatorComponent={Separator}
         contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
       />
       <MenuModal
         modalVisible={modalVisible}
         closeModal={handleCloseModal}
-        modalContent="Conteúdo do Modal"
         onPress={handleCloseModal}
+        modalTitle={"Consultas"}
+        data={data[0].modalIcons}
       />
     </View>
   );
