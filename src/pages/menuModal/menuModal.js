@@ -44,7 +44,7 @@ const MenuModal = (props) => {
         >
             <TouchableWithoutFeedback onPress={closeModal}>
                 <View style={styles.background}>
-                    <View style={styles.modalContainer}>
+                    <View style={styles.modalContainer} onPress={(event) => event.stopPropagation()}>
                         <Text style={styles.modalTitle}>{modalTitle}</Text>
                         <FlatList
                             data={data}
@@ -82,8 +82,24 @@ const styles = StyleSheet.create({
         padding: 30,
         borderWidth: 2,
         borderColor: colors.red,
-        width: '70%',
+        width: '80%',
     },
+    itemText: {
+        marginTop: 5,
+        textAlign: 'center',
+        fontFamily: "Roboto-Regular",
+        color: colors.lightgrey,
+    },
+    item: {
+        flex: 1,
+        margin: 5,
+        borderRadius: 5,
+        justifyContent: "center",
+        alignItems: "center",
+      },
+      itemContent: {
+        alignItems: "center",
+      },
     row: {
         flex: 1,
         justifyContent: "space-between",

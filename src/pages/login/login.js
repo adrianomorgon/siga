@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, ImageBackground, TextInput, TouchableOpacity, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import colors from '../../styles/colors'
 

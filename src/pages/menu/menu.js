@@ -15,71 +15,6 @@ import MenuModal from '../menuModal/menuModal';
 
 import colors from "../../styles/colors";
 
-const data = [
-  {
-    id: "1",
-    title: "Consultas",
-    icon: require("../../../assets/icons/menu/consultas.png"),
-    modalIcons: [
-      {
-        id: "1.1",
-        title: "Avisos",
-        icon: require("../../../assets/icons/menu/consultas/avisos.png")
-      },
-      {
-        id: "1.2",
-        title: "Histórico",
-        icon: require("../../../assets/icons/menu/consultas/historico.png")
-      },
-      {
-        id: "1.3",
-        title: "Horário",
-        icon: require("../../../assets/icons/menu/consultas/horario.png")
-      },
-      {
-        id: "1.4",
-        title: "Notas",
-        icon: require("../../../assets/icons/menu/consultas/notas.png")
-      },
-      {
-        id: "1.5",
-        title: "Faltas",
-        icon: require("../../../assets/icons/menu/consultas/faltas.png")
-      },
-      {
-        id: null,
-        title: null,
-        icon: null
-      },
-    ]
-  },
-  {
-    id: "2",
-    title: "Agenda",
-    icon: require("../../../assets/icons/menu/agenda.png"),
-  },
-  {
-    id: "3",
-    title: "Solicitações",
-    icon: require("../../../assets/icons/menu/solicitacoes.png"),
-  },
-  {
-    id: "4",
-    title: "Plano de Ensino",
-    icon: require("../../../assets/icons/menu/plano-de-ensino.png"),
-  },
-  {
-    id: "5",
-    title: "Segurança",
-    icon: require("../../../assets/icons/menu/seguranca.png"),
-  },
-  {
-    id: "6",
-    title: "Rematrícula",
-    icon: require("../../../assets/icons/menu/rematricula.png"),
-  },
-];
-
 const numColumns = 2;
 
 const Separator = () => {
@@ -88,25 +23,150 @@ const Separator = () => {
   return <View style={{ height: separatorPercentHeight }} />;
 };
 
-function MenuScreen() {
+function MenuScreen({navigation}) {
   const { height } = useWindowDimensions();
   const imagemPercentHeight = height * 0.12;
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalConsultasVisible, setModalConsultasVisible] = useState(false);
 
-  // Função para abrir o modal
-  const handleOpenModal = () => {
-    setModalVisible(true);
+  const handleOpenModalConsultas = () => {
+    setModalConsultasVisible(true);
   };
 
-  // Função para fechar o modal
-  const handleCloseModal = () => {
-    setModalVisible(false);
+  const handleCloseModalConsultas = () => {
+    setModalConsultasVisible(false);
   };
+
+  const [modalAgendaVisible, setModalAgendaVisible] = useState(false);
+
+  const handleOpenModalAgenda = () => {
+    setModalAgendaVisible(true);
+  };
+
+  const handleCloseModalAgenda = () => {
+    setModalAgendaVisible(false);
+  };
+
+  const [modalSolicitacoesVisible, setModalSolicitacoesVisible] = useState(false);
+
+  const handleOpenModalSolicitacoes = () => {
+    setModalSolicitacoesVisible(true);
+  };
+
+  const handleCloseModalSolicitacoes = () => {
+    setModalSolicitacoesVisible(false);
+  };
+
+  const handleNavigationPlanosDeEnsino = () => {
+    navigation.navigate('PlanosDeEnsino')
+  }
+
+  const handleNavigationSeguranca = () => {
+    navigation.navigate('Seguranca')
+  }
+
+  const handleNavigationRematricula = () => {
+    navigation.navigate('Rematricula')
+  }
+
+  const data = [
+    {
+      id: "1",
+      title: "Consultas",
+      icon: require("../../../assets/icons/menu/consultas.png"),
+      handleNavigation: handleOpenModalConsultas,
+      modalIcons: [
+        {
+          id: "1.1",
+          title: "Avisos",
+          icon: require("../../../assets/icons/menu/consultas/avisos.png")
+        },
+        {
+          id: "1.2",
+          title: "Histórico",
+          icon: require("../../../assets/icons/menu/consultas/historico.png")
+        },
+        {
+          id: "1.3",
+          title: "Horário",
+          icon: require("../../../assets/icons/menu/consultas/horario.png")
+        },
+        {
+          id: "1.4",
+          title: "Notas",
+          icon: require("../../../assets/icons/menu/consultas/notas.png")
+        },
+        {
+          id: "1.5",
+          title: "Faltas",
+          icon: require("../../../assets/icons/menu/consultas/faltas.png")
+        },
+        {
+          id: null,
+          title: null,
+          icon: null
+        },
+      ]
+    },
+    {
+      id: "2",
+      title: "Agenda",
+      icon: require("../../../assets/icons/menu/agenda.png"),
+      handleNavigation: handleOpenModalAgenda,
+      modalIcons: [
+        {
+          id: "2.1",
+          title: "Calendário de Provas",
+          icon: require("../../../assets/icons/menu/agenda/calendario-de-provas.png")
+        },
+        {
+          id: "2.2",
+          title: "Calendário Acadêmico",
+          icon: require("../../../assets/icons/menu/agenda/calendario-academico.png")
+        },
+      ]
+    },
+    {
+      id: "3",
+      title: "Solicitações",
+      icon: require("../../../assets/icons/menu/solicitacoes.png"),
+      handleNavigation: handleOpenModalSolicitacoes,
+      modalIcons: [
+        {
+          id: "3.1",
+          title: "Solicitação de Documentos",
+          icon: require("../../../assets/icons/menu/solicitacoes/sol-documentos.png")
+        },
+        {
+          id: "3.2",
+          title: "Revisão de Notas/Faltas",
+          icon: require("../../../assets/icons/menu/solicitacoes/sol-revisao-notas-faltas.png")
+        },
+      ]
+    },
+    {
+      id: "4",
+      title: "Planos de Ensino",
+      icon: require("../../../assets/icons/menu/plano-de-ensino.png"),
+      handleNavigation: handleNavigationPlanosDeEnsino,
+    },
+    {
+      id: "5",
+      title: "Segurança",
+      icon: require("../../../assets/icons/menu/seguranca.png"),
+      handleNavigation: handleNavigationSeguranca,
+    },
+    {
+      id: "6",
+      title: "Rematrícula",
+      icon: require("../../../assets/icons/menu/rematricula.png"),
+      handleNavigation: handleNavigationRematricula,
+    },
+  ];
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity style={styles.item} onPress={handleOpenModal}>
+      <TouchableOpacity style={styles.item} onPress={item.handleNavigation}>
         <View style={styles.itemContent}>
           <AutoDimensionImage
             source={item.icon}
@@ -129,11 +189,22 @@ function MenuScreen() {
         contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
       />
       <MenuModal
-        modalVisible={modalVisible}
-        closeModal={handleCloseModal}
-        onPress={handleCloseModal}
+        modalVisible={modalConsultasVisible}
+        closeModal={handleCloseModalConsultas}
         modalTitle={"Consultas"}
         data={data[0].modalIcons}
+      />
+      <MenuModal
+        modalVisible={modalAgendaVisible}
+        closeModal={handleCloseModalAgenda}
+        modalTitle={"Agenda"}
+        data={data[1].modalIcons}
+      />
+      <MenuModal
+        modalVisible={modalSolicitacoesVisible}
+        closeModal={handleCloseModalSolicitacoes}
+        modalTitle={"Solicitaçoes"}
+        data={data[2].modalIcons}
       />
     </View>
   );

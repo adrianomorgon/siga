@@ -4,6 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/pages/login/login";
 import MenuScreen from "./src/pages/menu/menu";
+import PlanosDeEnsinoScreen from "./src/pages/planosDeEnsino/planosDeEnsino";
+import SegurancaScreen from "./src/pages/seguranca/seguranca";
+import RematriculaScreen from "./src/pages/rematricula/rematricula";
 import { useFonts } from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -71,6 +74,18 @@ function App() {
         <Stack.Screen
           name="Menu"
           component={MenuScreen}
+        />
+        <Stack.Screen
+          name="PlanosDeEnsino"
+          component={PlanosDeEnsinoScreen}
+        />
+        <Stack.Screen
+          name="Seguranca"
+          component={SegurancaScreen}
+        />
+        <Stack.Screen
+          name="Rematricula"
+          component={RematriculaScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
