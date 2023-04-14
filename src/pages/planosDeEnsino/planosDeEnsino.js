@@ -14,6 +14,61 @@ function PlanosDeEnsinoScreen({ navigation }) {
             id: "1",
             disciplina: "Gestão de Equipes",
             icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png"),
+            conteudo: {
+                apresentacao: 
+                    {
+                        ementa: "Comunicação e Informação – conceitos e implicações no mundo contemporâneo; Da Cultura de Massa à Cultura Digital – novas formas de socialização da informação e  novos desafios na comunicação. Tecnologia e Sociedade - Problemas humanos e sociais referentes à utilização da tecnologia da informação e da computação: aspectos humanos da segurança e privacidade das informações e aspectos econômicos e éticos da utilização dos computadores.",
+                        objetivo: "Refletir sobre os impactos da Tecnologia da Informação na Sociedade Contemporânea.",
+                        cargas: {
+                            semanais: 2,
+                            teoricas: 1,
+                            praticas: 1
+                        }
+                    },
+                bibliografia: [
+                    {
+                        autor: "SANTAELLA, Lucia",
+                        obra: "Culturas e Artes do Pós-humano: da Cultura das Mídias à Cibercultura",
+                        cidade: "São Paulo",
+                        editora: "Paulus",
+                        ano: "2003",
+                    },
+                    {
+                        autor: "SCHAF, Adam",
+                        obra: "A Sociedade Informática",
+                        cidade: "São Paulo",
+                        editora: "Editora Brasiliense",
+                        ano: "2001",
+                    },
+                    {
+                        autor: "CASTELLS, Manuel",
+                        obra: "A sociedade em Rede",
+                        cidade: "São Paulo",
+                        editora: "Editora Paz e Terra",
+                        ano: "2005",
+                    },
+                    {
+                        autor: "LOJKINE, Jean",
+                        obra: "A Revolução informacional",
+                        cidade: "São Paulo",
+                        editora: "Editora Cortez",
+                        ano: "2002",
+                    },
+                ],
+                material_de_estudo: [
+                    {
+                        extensao: "pdf",
+                        nome: "Aula 1 - Introdução a Sociedade e Tecnologia"
+                    },
+                    {
+                        extensao: "doc",
+                        nome: "Lista de Exercícios I"
+                    }, {
+                        extensao: "pdf",
+                        nome: "Aula 2 - A Sociedade Informática"
+                    }
+                ]
+            }
         },
         {
             id: "2",
@@ -57,21 +112,22 @@ function PlanosDeEnsinoScreen({ navigation }) {
         },
     ];
 
-    const handleNavigationPlanoDeEnsino = () => {
+    function handleNavigationPlanoDeEnsino(titulo, conteudo) {
         navigation.navigate('Plano de Ensino', {
-            titulo: "teste"
-        })
-      }
+            titulo: titulo,
+            conteudo: conteudo
+        });
+    }
 
     const { height } = useWindowDimensions();
     const imagemPercentHeight = height * 0.10;
 
     const renderItem = ({ item }) => {
-        if(item.id === null){
+        if (item.id === null) {
             return <View style={styles.emptyItem} />;
         }
         return (
-            <TouchableOpacity style={styles.item} onPress={handleNavigationPlanoDeEnsino()}>
+            <TouchableOpacity style={styles.item} onPress={() => handleNavigationPlanoDeEnsino(item.disciplina, item.conteudo)}>
                 <View style={styles.itemContent}>
                     <AutoDimensionImage
                         source={item.icon}
@@ -131,7 +187,7 @@ const styles = StyleSheet.create({
     },
     emptyItem: {
         width: '33%',
-      },
+    },
 });
 
 export default PlanosDeEnsinoScreen;

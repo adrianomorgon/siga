@@ -6,6 +6,9 @@ import LoginScreen from "./src/pages/login/login";
 import MenuScreen from "./src/pages/menu/menu";
 import PlanosDeEnsinoScreen from "./src/pages/planosDeEnsino/planosDeEnsino";
 import PlanoDeEnsinoComponentScreen from "./src/pages/planosDeEnsino/planoDeEnsinoComponent";
+import ApresentacaoComponentScreen from "./src/pages/planosDeEnsino/apresentacao";
+import MaterialDeEstudoComponentScreen from "./src/pages/planosDeEnsino/materialDeEstudoComponent";
+import BibliografiaComponentScreen from "./src/pages/planosDeEnsino/bibliografiaComponent";
 import SegurancaScreen from "./src/pages/seguranca/seguranca";
 import RematriculaScreen from "./src/pages/rematricula/rematricula";
 import AvisosScreen from "./src/pages/consultas/avisos";
@@ -101,6 +104,18 @@ function App() {
         <Stack.Screen
           name="Plano de Ensino"
           component={PlanoDeEnsinoComponentScreen}
+        />
+        <Stack.Screen
+          name="Material de Estudo"
+          component={MaterialDeEstudoComponentScreen}
+        />
+        <Stack.Screen
+          name="Bibliografia"
+          component={BibliografiaComponentScreen}
+        />
+        <Stack.Screen
+          name="Apresentacao"
+          component={ApresentacaoComponentScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

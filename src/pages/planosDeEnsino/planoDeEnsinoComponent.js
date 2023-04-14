@@ -9,11 +9,13 @@ import commomStyles from "../../styles/commonStyles";
 import colors from "../../styles/colors";
 
 function PlanoDeEnsinoComponentScreen({route, navigation}) {
+    const { titulo, conteudo } = route.params;
     const data = [
         {
             id: "1",
             disciplina: "Apresentação",
-            icon: require("../../../assets/icons/planos-de-ensino/apresentacao.png")
+            icon: require("../../../assets/icons/planos-de-ensino/apresentacao.png"),
+            handleNavigation: handleNavigationApresentacao,
         },
         {
             id: "2",
@@ -33,25 +35,44 @@ function PlanoDeEnsinoComponentScreen({route, navigation}) {
         {
             id: "5",
             disciplina: "Material de Estudo",
-            icon: require("../../../assets/icons/planos-de-ensino/material-de-estudo.png")
+            icon: require("../../../assets/icons/planos-de-ensino/material-de-estudo.png"),
+            handleNavigation: handleNavigationMaterialDeEstudo,
         },
         {
             id: "6",
             disciplina: "Bibliografia",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
+            icon: require("../../../assets/icons/planos-de-ensino/bibliografia.png"),
+            handleNavigation: handleNavigationBibliografia,
         },
     ];
 
+    function handleNavigationApresentacao(){
+        navigation.navigate('Apresentacao', {
+            conteudo: conteudo.apresentacao
+        });
+    }
+
+    function handleNavigationMaterialDeEstudo(){
+        navigation.navigate('Material de Estudo', {
+            conteudo: conteudo.material_de_estudo
+        });
+    }
+
+    function handleNavigationBibliografia(){
+        navigation.navigate('Bibliografia', {
+            conteudo: conteudo.bibliografia
+        });
+    }
+
     const { height } = useWindowDimensions();
     const imagemPercentHeight = height * 0.10;
-    const { titulo } = route.params;
 
     const renderItem = ({ item }) => {
         if(item.id === null){
             return <View style={styles.emptyItem} />;
         }
         return (
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity style={styles.item} onPress={item.handleNavigation}>
                 <View style={styles.itemContent}>
                     <AutoDimensionImage
                         source={item.icon}

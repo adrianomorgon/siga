@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         borderColor: colors.red,
         borderWidth: 2,
+        borderRadius: 10,
     },
     title: {
         margin: 10,
