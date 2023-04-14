@@ -172,7 +172,6 @@ function HorarioScreen() {
     }
 
     return (
-        <ScrollView>
             <View style={styles.collapse}>
                 <Text style={commomStyles.title}>Horario</Text>
                 <FlatList
@@ -183,7 +182,6 @@ function HorarioScreen() {
                     contentContainerStyle={styles.listContainer}
                 />
             </View>
-        </ScrollView>
     )
 }
 

@@ -15,16 +15,30 @@ function PlanosDeEnsinoScreen({ navigation }) {
             disciplina: "Gestão de Equipes",
             icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png"),
             conteudo: {
-                apresentacao: 
+                apresentacao:
+                {
+                    ementa: "Comunicação e Informação – conceitos e implicações no mundo contemporâneo; Da Cultura de Massa à Cultura Digital – novas formas de socialização da informação e  novos desafios na comunicação. Tecnologia e Sociedade - Problemas humanos e sociais referentes à utilização da tecnologia da informação e da computação: aspectos humanos da segurança e privacidade das informações e aspectos econômicos e éticos da utilização dos computadores.",
+                    objetivo: "Refletir sobre os impactos da Tecnologia da Informação na Sociedade Contemporânea.",
+                    cargas: {
+                        semanais: 2,
+                        teoricas: 1,
+                        praticas: 1
+                    }
+                },
+                aulas: [
                     {
-                        ementa: "Comunicação e Informação – conceitos e implicações no mundo contemporâneo; Da Cultura de Massa à Cultura Digital – novas formas de socialização da informação e  novos desafios na comunicação. Tecnologia e Sociedade - Problemas humanos e sociais referentes à utilização da tecnologia da informação e da computação: aspectos humanos da segurança e privacidade das informações e aspectos econômicos e éticos da utilização dos computadores.",
-                        objetivo: "Refletir sobre os impactos da Tecnologia da Informação na Sociedade Contemporânea.",
-                        cargas: {
-                            semanais: 2,
-                            teoricas: 1,
-                            praticas: 1
-                        }
+                        titulo: "Aula 1",
+                        descricao: "Aula inaugural: Apresentação da disciplina. Introdução à Sociedade e Tecnologia. Aula inaugural: Apresentação da disciplina, critérios de avaliação, faltas e ementa. Aula expositiva."
                     },
+                    {
+                        titulo: "Aula 2",
+                        descricao: "Aula inaugural: Apresentação da disciplina. Introdução à Sociedade e Tecnologia. Aula inaugural: Apresentação da disciplina, critérios de avaliação, faltas e ementa. Aula expositiva."
+                    },
+                    {
+                        titulo: "Aula 3",
+                        descricao: "Aula inaugural: Apresentação da disciplina. Introdução à Sociedade e Tecnologia. Aula inaugural: Apresentação da disciplina, critérios de avaliação, faltas e ementa. Aula expositiva."
+                    }
+                ],
                 bibliografia: [
                     {
                         autor: "SANTAELLA, Lucia",

@@ -43,7 +43,6 @@ const CollapseHorario = ({ title, body }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexGrow: 1,
         borderColor: colors.red,
         borderWidth: 2,
         borderRadius: 10,

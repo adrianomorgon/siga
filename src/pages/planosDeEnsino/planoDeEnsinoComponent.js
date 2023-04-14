@@ -20,7 +20,8 @@ function PlanoDeEnsinoComponentScreen({route, navigation}) {
         {
             id: "2",
             disciplina: "Aulas",
-            icon: require("../../../assets/icons/planos-de-ensino/aulas.png")
+            icon: require("../../../assets/icons/planos-de-ensino/aulas.png"),
+            handleNavigation: handleNavigationAulas,
         },
         {
             id: "3",
@@ -49,6 +50,12 @@ function PlanoDeEnsinoComponentScreen({route, navigation}) {
     function handleNavigationApresentacao(){
         navigation.navigate('Apresentacao', {
             conteudo: conteudo.apresentacao
+        });
+    }
+
+    function handleNavigationAulas(){
+        navigation.navigate('Aulas', {
+            conteudo: conteudo.aulas
         });
     }
 
