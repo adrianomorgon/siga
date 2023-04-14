@@ -57,6 +57,8 @@ function MenuScreen({navigation}) {
     setModalSolicitacoesVisible(false);
   };
 
+  //Page navigations
+
   const handleNavigationPlanosDeEnsino = () => {
     navigation.navigate('PlanosDeEnsino')
   }
@@ -69,6 +71,14 @@ function MenuScreen({navigation}) {
     navigation.navigate('Rematricula')
   }
 
+  const handleNavigationHorario = () => {
+    navigation.navigate('Horario')
+  }
+
+  const handleNavigationAvisos = () => {
+    navigation.navigate('Avisos')
+  }
+
   const data = [
     {
       id: "1",
@@ -79,17 +89,19 @@ function MenuScreen({navigation}) {
         {
           id: "1.1",
           title: "Avisos",
-          icon: require("../../../assets/icons/menu/consultas/avisos.png")
+          icon: require("../../../assets/icons/menu/consultas/avisos.png"),
+          handleNavigation: handleNavigationAvisos,
         },
         {
           id: "1.2",
           title: "Histórico",
-          icon: require("../../../assets/icons/menu/consultas/historico.png")
+          icon: require("../../../assets/icons/menu/consultas/historico.png"),
         },
         {
           id: "1.3",
           title: "Horário",
-          icon: require("../../../assets/icons/menu/consultas/horario.png")
+          icon: require("../../../assets/icons/menu/consultas/horario.png"),
+          handleNavigation: handleNavigationHorario,
         },
         {
           id: "1.4",

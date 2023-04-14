@@ -16,7 +16,7 @@ const MenuModal = (props) => {
             return <View style={styles.emptyItem} />;
         }
         return (
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity style={styles.item} onPress={item.handleNavigation}>
                 <View style={styles.itemContent}>
                     <AutoDimensionImage
                         source={item.icon}

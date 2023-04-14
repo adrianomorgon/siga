@@ -8,70 +8,50 @@ import AutoDimensionImage, {
 import commomStyles from "../../styles/commonStyles";
 import colors from "../../styles/colors";
 
-function PlanosDeEnsinoScreen({ navigation }) {
+function PlanoDeEnsinoComponentScreen({route, navigation}) {
     const data = [
         {
             id: "1",
-            disciplina: "Gestão de Equipes",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png"),
+            disciplina: "Apresentação",
+            icon: require("../../../assets/icons/planos-de-ensino/apresentacao.png")
         },
         {
             id: "2",
-            disciplina: "Economia e Finanças",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
+            disciplina: "Aulas",
+            icon: require("../../../assets/icons/planos-de-ensino/aulas.png")
         },
         {
             id: "3",
-            disciplina: "Sociedade e Tecnologia",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
+            disciplina: "Avaliações",
+            icon: require("../../../assets/icons/planos-de-ensino/avaliacoes.png")
         },
         {
             id: "4",
-            disciplina: "Engenharia de Software II",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
+            disciplina: "Extra-Classe",
+            icon: require("../../../assets/icons/planos-de-ensino/extra-classe.png")
         },
         {
             id: "5",
-            disciplina: "Programação Orient Objetos",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
+            disciplina: "Material de Estudo",
+            icon: require("../../../assets/icons/planos-de-ensino/material-de-estudo.png")
         },
         {
             id: "6",
-            disciplina: "Sistemas Operacionais II",
+            disciplina: "Bibliografia",
             icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
-        },
-        {
-            id: "7",
-            disciplina: "Estatística Aplicada",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
-        },
-        {
-            id: "8",
-            disciplina: "Programação Linear",
-            icon: require("../../../assets/icons/planos-de-ensino/plano-ensino-generico.png")
-        },
-        {
-            id: null,
-            disciplina: null,
-            icon: null
         },
     ];
 
-    const handleNavigationPlanoDeEnsino = () => {
-        navigation.navigate('Plano de Ensino', {
-            titulo: "teste"
-        })
-      }
-
     const { height } = useWindowDimensions();
     const imagemPercentHeight = height * 0.10;
+    const { titulo } = route.params;
 
     const renderItem = ({ item }) => {
         if(item.id === null){
             return <View style={styles.emptyItem} />;
         }
         return (
-            <TouchableOpacity style={styles.item} onPress={handleNavigationPlanoDeEnsino()}>
+            <TouchableOpacity style={styles.item}>
                 <View style={styles.itemContent}>
                     <AutoDimensionImage
                         source={item.icon}
@@ -94,7 +74,7 @@ function PlanosDeEnsinoScreen({ navigation }) {
 
     return (
         <View>
-            <Text style={commomStyles.title}>Planos de Ensino</Text>
+            <Text style={commomStyles.title}>{titulo}</Text>
             <FlatList
                 data={data}
                 renderItem={renderItem}
@@ -134,4 +114,4 @@ const styles = StyleSheet.create({
       },
 });
 
-export default PlanosDeEnsinoScreen;
+export default PlanoDeEnsinoComponentScreen;

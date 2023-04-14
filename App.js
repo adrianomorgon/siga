@@ -5,8 +5,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/pages/login/login";
 import MenuScreen from "./src/pages/menu/menu";
 import PlanosDeEnsinoScreen from "./src/pages/planosDeEnsino/planosDeEnsino";
+import PlanoDeEnsinoComponentScreen from "./src/pages/planosDeEnsino/planoDeEnsinoComponent";
 import SegurancaScreen from "./src/pages/seguranca/seguranca";
 import RematriculaScreen from "./src/pages/rematricula/rematricula";
+import AvisosScreen from "./src/pages/consultas/avisos";
+import HorarioScreen from "./src/pages/consultas/horario";
 import { useFonts } from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -86,6 +89,18 @@ function App() {
         <Stack.Screen
           name="Rematricula"
           component={RematriculaScreen}
+        />
+        <Stack.Screen
+          name="Avisos"
+          component={AvisosScreen}
+        />
+        <Stack.Screen
+          name="Horario"
+          component={HorarioScreen}
+        />
+        <Stack.Screen
+          name="Plano de Ensino"
+          component={PlanoDeEnsinoComponentScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
