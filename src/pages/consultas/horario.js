@@ -165,13 +165,13 @@ function HorarioScreen() {
 
     const renderCollapse = ({ item }) => {
         return (<CollapseHorario
-            style={styles.collapse}
             title={item.title}
             body={item.disciplinas} />
         )
     }
 
     return (
+        <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.collapse}>
                 <Text style={commomStyles.title}>Horario</Text>
                 <FlatList
@@ -180,8 +180,10 @@ function HorarioScreen() {
                     keyExtractor={(item) => item.id}
                     ItemSeparatorComponent={Separator}
                     contentContainerStyle={styles.listContainer}
+                    nestedScrollEnabled
                 />
             </View>
+        </ScrollView>
     )
 }
 

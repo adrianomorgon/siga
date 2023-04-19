@@ -79,6 +79,10 @@ function MenuScreen({navigation}) {
     navigation.navigate('Avisos')
   }
 
+  const handleNavigationFaltas = () => {
+    navigation.navigate('Faltas')
+  }
+
   const data = [
     {
       id: "1",
@@ -111,7 +115,8 @@ function MenuScreen({navigation}) {
         {
           id: "1.5",
           title: "Faltas",
-          icon: require("../../../assets/icons/menu/consultas/faltas.png")
+          icon: require("../../../assets/icons/menu/consultas/faltas.png"),
+          handleNavigation: handleNavigationFaltas,
         },
         {
           id: null,

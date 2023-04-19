@@ -14,6 +14,7 @@ import SegurancaScreen from "./src/pages/seguranca/seguranca";
 import RematriculaScreen from "./src/pages/rematricula/rematricula";
 import AvisosScreen from "./src/pages/consultas/avisos";
 import HorarioScreen from "./src/pages/consultas/horario";
+import FaltasScreen from "./src/pages/consultas/faltasComponent";
 import { useFonts } from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -101,6 +102,10 @@ function App() {
         <Stack.Screen
           name="Horario"
           component={HorarioScreen}
+        />
+        <Stack.Screen
+          name="Faltas"
+          component={FaltasScreen}
         />
         <Stack.Screen
           name="Plano de Ensino"
