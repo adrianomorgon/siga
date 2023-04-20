@@ -15,6 +15,7 @@ import RematriculaScreen from "./src/pages/rematricula/rematricula";
 import AvisosScreen from "./src/pages/consultas/avisos";
 import HorarioScreen from "./src/pages/consultas/horario";
 import FaltasScreen from "./src/pages/consultas/faltasComponent";
+import SolicitacoesDocumentosScreen from "./src/pages/solicitacoes/solicitacoesDocumentos";
 import { useFonts } from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -126,6 +127,10 @@ function App() {
         <Stack.Screen
           name="Aulas"
           component={AulasComponentScreen}
+        />
+        <Stack.Screen
+          name="Solicitacao de Documentos"
+          component={SolicitacoesDocumentosScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

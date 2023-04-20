@@ -51,7 +51,6 @@ function SegurancaScreen({ navigation }) {
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => Alert.alert("Senha alterada!")}
-                    title="Learn More"
                     color={colors.red}
                 >
                     <View>

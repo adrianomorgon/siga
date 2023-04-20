@@ -83,6 +83,10 @@ function MenuScreen({navigation}) {
     navigation.navigate('Faltas')
   }
 
+  const handleNavigationSolicitacaoDocumentos = () => {
+    navigation.navigate('Solicitacao de Documentos')
+  }
+
   const data = [
     {
       id: "1",
@@ -152,7 +156,8 @@ function MenuScreen({navigation}) {
         {
           id: "3.1",
           title: "Solicitação de Documentos",
-          icon: require("../../../assets/icons/menu/solicitacoes/sol-documentos.png")
+          icon: require("../../../assets/icons/menu/solicitacoes/sol-documentos.png"),
+          handleNavigation: handleNavigationSolicitacaoDocumentos,
         },
         {
           id: "3.2",
