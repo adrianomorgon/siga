@@ -1,11 +1,14 @@
 import * as React from "react";
 import {
-    Text, View, FlatList, StyleSheet, TouchableOpacity, useWindowDimensions, ScrollView, Modal, TouchableWithoutFeedback
+    Text, View, FlatList, StyleSheet, TouchableOpacity, useWindowDimensions, ScrollView, Modal, TouchableWithoutFeedback, Dimensions, Image
 } from "react-native";
 import AutoDimensionImage, {
     imageDimensionTypes,
 } from "react-native-auto-dimensions-image";
 import { Calendar, LocaleConfig } from 'react-native-calendars';
+import {
+    PieChart
+} from 'react-native-chart-kit'
 import commomStyles from "../../styles/commonStyles";
 import CollapseFaltas from "./collpaseFaltasComponent";
 import colors from "../../styles/colors";
@@ -411,6 +414,8 @@ function FaltasScreen({ navigation }) {
 
     const { height } = useWindowDimensions();
     const imagemPercentHeight = height * 0.05;
+    const chartPercentHeight = height * 0.3;
+    
 
     const [grid, setGrid] = React.useState(true);
     const [grafico, setGrafico] = React.useState(false);
@@ -548,6 +553,40 @@ function FaltasScreen({ navigation }) {
         return `${dia} de ${mes} de ${ano}`;
     }
 
+    const testeGrafico = [
+        {
+            name: "Presenças",
+            population: 44,
+            color: colors.mediumgrey,
+            legendFontColor: "#7F7F7F",
+            legendFontSize: 15
+        },
+        {
+            name: "Faltas",
+            population: 16,
+            color: colors.red,
+            legendFontColor: "#7F7F7F",
+            legendFontSize: 15
+        },
+    ];
+
+    const chartConfig = {
+        backgroundColor: "#e26a00",
+        backgroundGradientFrom: "#fb8c00",
+        backgroundGradientTo: "#ffa726",
+        decimalPlaces: 2, // optional, defaults to 2dp
+        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+        labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+        style: {
+            borderRadius: 16
+        },
+        propsForDots: {
+            r: "6",
+            strokeWidth: "2",
+            stroke: "#ffa726"
+        }
+    }
+
     return (
         <View style={{ flex: 1 }}>
 
@@ -567,8 +606,26 @@ function FaltasScreen({ navigation }) {
 
                 {grafico && (
                     <View>
-                        <Text>Gráfico</Text>
-
+                        <Text style={styles.modalTitle}>Programação Orientada a Objetos</Text>
+                        <View style={{
+                            flex: 1,
+                            alignContent: "center",
+                            borderColor: "blue",
+                            borderWidth: 2
+                        }}>
+                            <PieChart
+                                data={testeGrafico}
+                                width={Dimensions.get("window").width}
+                                height={chartPercentHeight}
+                                chartConfig={chartConfig}
+                                accessor={"population"}
+                                backgroundColor={"transparent"}
+                                paddingLeft={"30"}
+                                center={[0, 0]}
+                                absolute
+                                hasLegend={true}
+                            />
+                        </View>
                     </View>
 
 
