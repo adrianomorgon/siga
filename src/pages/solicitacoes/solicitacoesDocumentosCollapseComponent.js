@@ -3,13 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert, Switch, TextInput } fr
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import { DataTable } from 'react-native-paper';
 import colors from '../../styles/colors';
-import SolicitacoesDocumentosScreen from './solicitacoesDocumentos';
 
 const SolicitacoesDocumentosCollapse = ({ titulo }) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [solicitado, setSolicitado] = React.useState(false);
-    const quantidade = 1;
+    const quantidade = "1";
 
     return (
         <View style={styles.container}>

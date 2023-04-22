@@ -9,8 +9,6 @@ import {
 import SolicitacoesDocumentosCollapse from "./solicitacoesDocumentosCollapseComponent";
 import commomStyles from "../../styles/commonStyles";
 import colors from "../../styles/colors";
-import { Alert } from "react-native";
-import { FlatList } from "react-native";
 
 function SolicitacoesDocumentosScreen({ navigation }) {
     const { height } = useWindowDimensions();
