@@ -13,17 +13,18 @@ import BibliografiaComponentScreen from "./src/pages/planosDeEnsino/bibliografia
 import SegurancaScreen from "./src/pages/seguranca/seguranca";
 import RematriculaScreen from "./src/pages/rematricula/rematricula";
 import AvisosScreen from "./src/pages/consultas/avisos";
+import HistoricoScreen from "./src/pages/consultas/historico";
 import HorarioScreen from "./src/pages/consultas/horario";
 import FaltasScreen from "./src/pages/consultas/faltasComponent";
 import SolicitacoesDocumentosScreen from "./src/pages/solicitacoes/solicitacoesDocumentos";
 import { useFonts } from "expo-font";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Fontisto } from "@expo/vector-icons";
 
 import colors from "./src/styles/colors";
 
 const LogoTitle = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginRight: 150 }}>
       <Image
         style={{ height: 40}}
         resizeMode="contain"
@@ -66,13 +67,15 @@ function App() {
         screenOptions={{
           headerTitle: (props) => <LogoTitle {...props} />,
           headerRight: () => (
-            <TouchableOpacity onPress={() => console.log("Menu pressed")}>
+            <TouchableOpacity onPress={() => console.log("Bell pressed")}>
               <Ionicons name="menu" size={24} color="white" />
             </TouchableOpacity>
           ),
           headerStyle: {
             backgroundColor: colors.red,
           },
+          headerTintColor: "white",
+          headerMode: 'float',
         }}
       >
         <Stack.Screen
@@ -99,6 +102,10 @@ function App() {
         <Stack.Screen
           name="Avisos"
           component={AvisosScreen}
+        />
+        <Stack.Screen
+          name="Historico"
+          component={HistoricoScreen}
         />
         <Stack.Screen
           name="Horario"

@@ -610,8 +610,7 @@ function FaltasScreen({ navigation }) {
                         <View style={{
                             flex: 1,
                             alignContent: "center",
-                            borderColor: "blue",
-                            borderWidth: 2
+                            marginTop: 50,
                         }}>
                             <PieChart
                                 data={testeGrafico}

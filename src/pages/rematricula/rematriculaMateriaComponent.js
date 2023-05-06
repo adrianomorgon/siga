@@ -6,7 +6,7 @@ import commomStyles from "../../styles/commonStyles";
 import colors from "../../styles/colors";
 import { Alert } from "react-native";
 
-function RematriculaMateriaComponent({ titulo, cardUm, cardDois }) {
+function RematriculaMateriaComponent({ titulo, primeiroHorario, segundoHorario }) {
     const [cardColorP, setCardColorP] = React.useState(colors.white);
     const [cardColorS, setCardColorS] = React.useState(colors.white);
     const [checkboxColorP, setCheckboxColorP] = React.useState(colors.white);
@@ -19,7 +19,7 @@ function RematriculaMateriaComponent({ titulo, cardUm, cardDois }) {
     let umCard = false;
     let doisCards = false;
 
-    if (cardDois !== undefined) {
+    if (segundoHorario !== undefined) {
         umCard = false;
         doisCards = true;
     } else {
@@ -129,7 +129,7 @@ function RematriculaMateriaComponent({ titulo, cardUm, cardDois }) {
                         <View>
                             <TouchableWithoutFeedback onPress={() => animacaoUmCard()}>
                                 <View style={[styles.card, { backgroundColor: cardColorP, marginBottom: 5, width: widthPercentCard }]}>
-                                    <Text style={[styles.textMateria, { color: textColorP }]}>{cardUm}</Text>
+                                    <Text style={[styles.textMateria, { color: textColorP }]}>{primeiroHorario}</Text>
                                 </View>
                             </TouchableWithoutFeedback>
                         </View>
@@ -138,12 +138,12 @@ function RematriculaMateriaComponent({ titulo, cardUm, cardDois }) {
                         <View>
                             <TouchableWithoutFeedback onPress={() => animacaoDoisCardsPrimeiroHorario()}>
                                 <View style={[styles.cardHalf, { backgroundColor: cardColorP, marginBottom: 5, width: widthPercentCard }]}>
-                                    <Text style={[styles.textMateria, { color: textColorP }]}>{cardUm}</Text>
+                                    <Text style={[styles.textMateria, { color: textColorP }]}>{primeiroHorario}</Text>
                                 </View>
                             </TouchableWithoutFeedback>
                             <TouchableWithoutFeedback onPress={() => animacaoDoisCardsSegundoHorario()}>
                                 <View style={[styles.cardHalf, { backgroundColor: cardColorS, width: widthPercentCard }]}>
-                                    <Text style={[styles.textMateria, { color: textColorS }]}>{cardDois}</Text>
+                                    <Text style={[styles.textMateria, { color: textColorS }]}>{segundoHorario}</Text>
                                 </View>
                             </TouchableWithoutFeedback>
                         </View>

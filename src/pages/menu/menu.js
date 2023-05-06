@@ -79,6 +79,10 @@ function MenuScreen({navigation}) {
     navigation.navigate('Avisos')
   }
 
+  const handleNavigationHistorico = () => {
+    navigation.navigate('Historico')
+  }
+
   const handleNavigationFaltas = () => {
     navigation.navigate('Faltas')
   }
@@ -104,6 +108,7 @@ function MenuScreen({navigation}) {
           id: "1.2",
           title: "Histórico",
           icon: require("../../../assets/icons/menu/consultas/historico.png"),
+          handleNavigation: handleNavigationHistorico,
         },
         {
           id: "1.3",
